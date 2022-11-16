@@ -112,8 +112,10 @@ public class Main {
                         transaction.AMOUNT, realPrice);
             }
 
-            portfolio.get(transaction.COIN).updateValue(transaction.DATE,
-                    spotPrice);
+            if (spotPrice != null) {
+                portfolio.get(transaction.COIN).updateValue(transaction.DATE,
+                        spotPrice);
+            }
         }
 
         PrintWriter pw;
