@@ -13,7 +13,7 @@ public class Position {
         ASSET = asset;
         amount = BigDecimal.ZERO;
         avgPrice = BigDecimal.ZERO;
-        value = BigDecimal.ZERO;
+        value = null;
         realProfit = BigDecimal.ZERO;
     }
 
@@ -39,10 +39,18 @@ public class Position {
 
     @Override
     public String toString() {
-        return ASSET +
-        "\nAmount: " + amount.setScale(3, RoundingMode.HALF_UP) +
-        "\nValue (as of " + valueLastUpdated + "): " + value.setScale(3, RoundingMode.HALF_UP) +
-        "\nAverage buy price: " + avgPrice.setScale(3, RoundingMode.HALF_UP) +
-        "\nRealised profit/loss: " + realProfit.setScale(3, RoundingMode.HALF_UP);
+        String str = ASSET + "\nAmount: " + amount.setScale(3, RoundingMode.HALF_UP) +
+                "\nValue (as of " + valueLastUpdated + "): ";
+
+        if (value == null) {
+            str += "unknown";
+        } else {
+            str += value.setScale(3, RoundingMode.HALF_UP);
+        }
+
+        str += "\nAverage buy price: " + avgPrice.setScale(3, RoundingMode.HALF_UP)
+                + "\nRealised profit/loss: " + realProfit.setScale(3, RoundingMode.HALF_UP);
+
+        return str;
     }
 }
