@@ -21,6 +21,7 @@ public class Main {
         PriorityQueue<Transaction> transactionList = new PriorityQueue<>();
 
         readers.add(new NbxReader());
+        readers.add(new FiriReader());
 
         for (Reader reader : readers) {
             File dir = new File(reader.NAME);
