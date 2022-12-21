@@ -13,15 +13,21 @@ import java.math.BigDecimal;
 import java.io.PrintWriter;
 
 public class Main {
-    // TODO: Allow user to change fiat currency
-    public static final String FIAT = "NOK";
-
     public static void main(String[] args) {
         ArrayList<Reader> readers = new ArrayList<>();
         PriorityQueue<Transaction> transactionList = new PriorityQueue<>();
 
-        readers.add(new NbxReader());
-        readers.add(new FiriReader());
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Fiat currency (default: USD): ");
+        String fiat = input.nextLine();
+
+        if (fiat.equals("")) {
+            fiat = "USD";
+        }
+
+        readers.add(new NbxReader(fiat));
+        readers.add(new FiriReader(fiat));
 
         for (Reader reader : readers) {
             File dir = new File(reader.NAME);
@@ -34,7 +40,6 @@ public class Main {
         System.out.println("Please add your CSV-files " +
                 "in their respective folders, if you haven't already");
 
-        Scanner input = new Scanner(System.in);
         LocalDateTime startDate = null;
         LocalDateTime endDate = null;
 

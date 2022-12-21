@@ -9,10 +9,12 @@ import java.util.List;
 
 public abstract class Reader {
     public final String NAME;
+    protected final String FIAT;
     protected ArrayList<Transaction> transactionList;
 
-    public Reader(String name) {
+    public Reader(String name, String fiat) {
         NAME = name;
+        FIAT = fiat;
         transactionList = new ArrayList<>();
     }
     public abstract void read(File file) throws FileNotFoundException,

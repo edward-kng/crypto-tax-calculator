@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 import java.math.BigDecimal;
 
 public class FiriReader extends Reader {
-    public FiriReader() {
-        super("Firi");
+    public FiriReader(String fiat) {
+        super("Firi", fiat);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class FiriReader extends Reader {
                 LocalDateTime date = parseDate(data[columnNrs.get("Created at")]);
 
                 if (data[columnNrs.get("Action")].contains("Bonus")
-                        && !coin.equals(cryptotaxcalculator.Main.FIAT)) {
+                        && !coin.equals(FIAT)) {
                     transactionList.add(
                             new Transaction(date, coin, amount, null, BigDecimal.ZERO)
                     );
@@ -57,7 +57,7 @@ public class FiriReader extends Reader {
                 for (String[] transactionData : matchOrders.get(match)) {
                     String coin = transactionData[columnNrs.get("Currency")];
 
-                    if (coin.equals(cryptotaxcalculator.Main.FIAT)) {
+                    if (coin.equals(FIAT)) {
                         orderValue = orderValue.add(new BigDecimal(
                                 transactionData[columnNrs.get("Amount")]));
                     } else {
