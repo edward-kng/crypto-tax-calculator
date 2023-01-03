@@ -28,6 +28,7 @@ public class Main {
 
         readers.add(new NbxReader(fiat));
         readers.add(new FiriReader(fiat));
+        readers.add(new CoinbaseReader(fiat));
 
         for (Reader reader : readers) {
             File dir = new File(reader.NAME);

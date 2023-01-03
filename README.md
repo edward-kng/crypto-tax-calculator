@@ -15,3 +15,4 @@ Generates a tax report for your cryptocurrency investments with the total value 
 ## Currently supported exchanges and wallets
 - Norwegian Block Exchange (NBX)
 - Firi
+- Coinbase
