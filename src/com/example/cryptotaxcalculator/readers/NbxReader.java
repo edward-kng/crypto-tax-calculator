@@ -1,8 +1,8 @@
-package cryptotaxcalculator.readers;
+package com.example.cryptotaxcalculator.readers;
 
-import cryptotaxcalculator.Reader;
-import cryptotaxcalculator.InvalidFileFormatException;
-import cryptotaxcalculator.Transaction;
+import com.example.cryptotaxcalculator.Reader;
+import com.example.cryptotaxcalculator.InvalidFileFormatException;
+import com.example.cryptotaxcalculator.Transaction;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.File;

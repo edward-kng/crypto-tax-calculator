@@ -1,12 +1,13 @@
-package cryptotaxcalculator.readers;
+package com.example.cryptotaxcalculator.readers;
 
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Scanner;
-import cryptotaxcalculator.InvalidFileFormatException;
-import cryptotaxcalculator.Reader;
-import cryptotaxcalculator.Transaction;
+
+import com.example.cryptotaxcalculator.InvalidFileFormatException;
+import com.example.cryptotaxcalculator.Reader;
+import com.example.cryptotaxcalculator.Transaction;
 import java.io.File;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;

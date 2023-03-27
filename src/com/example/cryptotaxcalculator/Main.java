@@ -1,4 +1,4 @@
-package cryptotaxcalculator;
+package com.example.cryptotaxcalculator;
 
 import java.math.RoundingMode;
 import java.time.LocalDateTime;
@@ -8,7 +8,9 @@ import java.util.HashMap;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import cryptotaxcalculator.readers.*;
+import com.example.cryptotaxcalculator.readers.CoinbaseReader;
+import com.example.cryptotaxcalculator.readers.FiriReader;
+import com.example.cryptotaxcalculator.readers.NbxReader;
 import java.math.BigDecimal;
 import java.io.PrintWriter;
 

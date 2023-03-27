@@ -1,4 +1,4 @@
-package cryptotaxcalculator;
+package com.example.cryptotaxcalculator;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
