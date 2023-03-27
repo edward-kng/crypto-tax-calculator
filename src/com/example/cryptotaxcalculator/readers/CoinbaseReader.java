@@ -1,16 +1,16 @@
 package com.example.cryptotaxcalculator.readers;
 
-import java.io.FileNotFoundException;
-import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Scanner;
-
 import com.example.cryptotaxcalculator.InvalidFileFormatException;
 import com.example.cryptotaxcalculator.Reader;
 import com.example.cryptotaxcalculator.Transaction;
+
 import java.io.File;
-import java.time.format.DateTimeFormatter;
+import java.io.FileNotFoundException;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Scanner;
 
 public class CoinbaseReader extends Reader {
     public CoinbaseReader(String fiat) {

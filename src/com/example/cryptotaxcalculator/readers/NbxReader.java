@@ -1,15 +1,16 @@
 package com.example.cryptotaxcalculator.readers;
 
-import com.example.cryptotaxcalculator.Reader;
 import com.example.cryptotaxcalculator.InvalidFileFormatException;
+import com.example.cryptotaxcalculator.Reader;
 import com.example.cryptotaxcalculator.Transaction;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+
 import java.io.File;
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDateTime;
+import java.io.FileNotFoundException;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class NbxReader extends Reader {
     public NbxReader(String fiat) {

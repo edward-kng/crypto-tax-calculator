@@ -1,16 +1,19 @@
 package com.example.cryptotaxcalculator.readers;
 
-import java.math.RoundingMode;
-import java.util.*;
-import java.io.FileNotFoundException;
-
 import com.example.cryptotaxcalculator.InvalidFileFormatException;
 import com.example.cryptotaxcalculator.Reader;
 import com.example.cryptotaxcalculator.Transaction;
+
 import java.io.File;
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDateTime;
+import java.io.FileNotFoundException;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class FiriReader extends Reader {
     public FiriReader(String fiat) {

@@ -1,18 +1,19 @@
 package com.example.cryptotaxcalculator;
 
-import java.math.RoundingMode;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.PriorityQueue;
-import java.util.HashMap;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 import com.example.cryptotaxcalculator.readers.CoinbaseReader;
 import com.example.cryptotaxcalculator.readers.FiriReader;
 import com.example.cryptotaxcalculator.readers.NbxReader;
-import java.math.BigDecimal;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.PriorityQueue;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {

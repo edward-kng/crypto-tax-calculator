@@ -1,7 +1,7 @@
 package com.example.cryptotaxcalculator;
 
-import java.time.LocalDateTime;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 public class Transaction implements Comparable<Transaction> {
     public final LocalDateTime DATE;
