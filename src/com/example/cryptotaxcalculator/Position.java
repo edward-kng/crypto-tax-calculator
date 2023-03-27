@@ -6,7 +6,10 @@ import java.time.LocalDateTime;
 
 public class Position {
     public final String asset;
-    private BigDecimal amount, avgPrice, realProfit, value;
+    private BigDecimal amount;
+    private BigDecimal avgPrice;
+    private BigDecimal realProfit;
+    private BigDecimal value;
     private LocalDateTime valueLastUpdated;
 
     public Position(String asset) {
