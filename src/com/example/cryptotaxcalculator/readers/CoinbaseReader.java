@@ -116,8 +116,4 @@ public class CoinbaseReader extends Reader {
             }
         }
     }
-
-    public String getName() {
-        return name;
-    }
 }
