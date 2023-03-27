@@ -17,16 +17,16 @@ public abstract class Reader {
         this.fiat = fiat;
         transactionList = new ArrayList<>();
     }
-    public abstract void read(File file) throws FileNotFoundException,
-            InvalidFileFormatException;
+    public abstract void read(File file)
+            throws FileNotFoundException, InvalidFileFormatException;
 
     public ArrayList<Transaction> getTransactions() {
         return transactionList;
     }
 
-    protected HashMap<String, Integer> getColumnNrs(File file, String[] header,
-                                                    String[] requiredColumns)
-            throws InvalidFileFormatException {
+    protected HashMap<String, Integer> getColumnNrs(
+            File file, String[] header, String[] requiredColumns
+    ) throws InvalidFileFormatException {
         List<String> columns = Arrays.asList(header);
         HashMap<String, Integer> columnNrs = new HashMap<>();
 

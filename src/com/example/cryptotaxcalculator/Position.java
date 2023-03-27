@@ -22,7 +22,9 @@ public class Position {
 
     public void buy(BigDecimal amount, BigDecimal price) {
         BigDecimal newAmount = this.amount.add(amount);
-        avgPrice = (avgPrice.multiply(this.amount)).add(amount.multiply(price)).divide(newAmount, 10, RoundingMode.HALF_UP);
+        avgPrice = (avgPrice.multiply(this.amount))
+                .add(amount.multiply(price))
+                .divide(newAmount, 10, RoundingMode.HALF_UP);
         this.amount = newAmount;
     }
 
@@ -42,8 +44,9 @@ public class Position {
 
     @Override
     public String toString() {
-        String str = asset + "\nAmount: " + amount.setScale(3, RoundingMode.HALF_UP) +
-                "\nValue (as of " + valueLastUpdated + "): ";
+        String str = asset + "\nAmount: "
+                + amount.setScale(3, RoundingMode.HALF_UP)
+                + "\nValue (as of " + valueLastUpdated + "): ";
 
         if (value == null) {
             str += "unknown";
@@ -51,8 +54,10 @@ public class Position {
             str += value.setScale(3, RoundingMode.HALF_UP);
         }
 
-        str += "\nAverage buy price: " + avgPrice.setScale(3, RoundingMode.HALF_UP)
-                + "\nRealised profit/loss: " + realProfit.setScale(3, RoundingMode.HALF_UP);
+        str += "\nAverage buy price: "
+                + avgPrice.setScale(3, RoundingMode.HALF_UP)
+                + "\nRealised profit/loss: "
+                + realProfit.setScale(3, RoundingMode.HALF_UP);
 
         return str;
     }

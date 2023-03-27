@@ -10,8 +10,10 @@ public class Transaction implements Comparable<Transaction> {
     public final BigDecimal price;
     public final BigDecimal total;
 
-    public Transaction(LocalDateTime date, String coin, BigDecimal amount,
-                       BigDecimal price, BigDecimal total) {
+    public Transaction(
+            LocalDateTime date, String coin, BigDecimal amount,
+            BigDecimal price, BigDecimal total
+    ) {
         this.date = date;
         this.coin = coin;
         this.amount = amount;

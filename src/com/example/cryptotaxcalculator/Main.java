@@ -41,8 +41,10 @@ public class Main {
             }
         }
 
-        System.out.println("Please add your CSV-files " +
-                "in their respective folders, if you haven't already");
+        System.out.println(
+                "Please add your CSV-files in their respective folders, if you "
+                        + "haven't already"
+        );
 
         LocalDateTime startDate = null;
         LocalDateTime endDate = null;
@@ -55,7 +57,9 @@ public class Main {
                 startDate = LocalDateTime.parse(inpDate + "T00:00:00");
             } catch (Exception e) {
                 System.out.println("Error: Invalid date");
-                System.out.print("Start date for tax report yyyy-mm-dd (optional): ");
+                System.out.print(
+                        "Start date for tax report yyyy-mm-dd (optional): "
+                );
                 inpDate = input.nextLine();
             }
         }
@@ -68,7 +72,9 @@ public class Main {
                 endDate = LocalDateTime.parse(inpDate + "T00:00:00");
             } catch (Exception e) {
                 System.out.println("Error: invalid date");
-                System.out.print("End date for tax report yyyy-mm-dd (optional): ");
+                System.out.print(
+                        "End date for tax report yyyy-mm-dd (optional): "
+                );
                 inpDate = input.nextLine();
             }
         }
@@ -82,8 +88,9 @@ public class Main {
                 try {
                     reader.read(file);
                 } catch (FileNotFoundException e) {
-                    System.err.println("Error: could not read "
-                            + file.getName());
+                    System.err.println(
+                            "Error: could not read " + file.getName()
+                    );
                 } catch (InvalidFileFormatException e) {
                     System.err.println(e.getMessage());
                 }
@@ -99,31 +106,31 @@ public class Main {
                 && transactionList.peek().date.compareTo(endDate) > 0); i++) {
             Transaction transaction = transactionList.remove();
             BigDecimal spotPrice = transaction.price;
-            BigDecimal realPrice = transaction.total.divide(transaction.amount,
-                    10, RoundingMode.HALF_UP).abs();
+            BigDecimal realPrice = transaction.total.divide(
+                    transaction.amount, 10, RoundingMode.HALF_UP
+            ).abs();
 
             if (!portfolio.containsKey(transaction.coin)) {
-                portfolio.put(transaction.coin,
-                        new Position(transaction.coin));
+                portfolio.put(transaction.coin, new Position(transaction.coin));
             }
 
             if (transaction.amount.compareTo(BigDecimal.ZERO) < 0) {
                 if (startDate == null
                         || transaction.date.compareTo(startDate) >= 0) {
-                    portfolio.get(transaction.coin).sell(
-                            transaction.amount.abs(), realPrice);
+                    portfolio.get(transaction.coin)
+                            .sell(transaction.amount.abs(), realPrice);
                 } else {
-                    portfolio.get(transaction.coin).burn(
-                            transaction.amount.abs());
+                    portfolio.get(transaction.coin)
+                            .burn(transaction.amount.abs());
                 }
             } else if (transaction.amount.compareTo(BigDecimal.ZERO) > 0) {
-                portfolio.get(transaction.coin).buy(
-                        transaction.amount, realPrice);
+                portfolio.get(transaction.coin)
+                        .buy(transaction.amount, realPrice);
             }
 
             if (spotPrice != null) {
-                portfolio.get(transaction.coin).updateValue(transaction.date,
-                        spotPrice);
+                portfolio.get(transaction.coin)
+                        .updateValue(transaction.date, spotPrice);
             }
         }
 
@@ -134,6 +141,7 @@ public class Main {
         } catch (FileNotFoundException e) {
             System.err.println("Error: could not write to file report.txt");
             System.exit(2);
+
             return;
         }
 
