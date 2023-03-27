@@ -1,16 +1,19 @@
-package cryptotaxcalculator;
+package com.example.cryptotaxcalculator;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDateTime;
 
 public class Position {
-    public final String ASSET;
-    private BigDecimal amount, avgPrice, realProfit, value;
+    public final String asset;
+    private BigDecimal amount;
+    private BigDecimal avgPrice;
+    private BigDecimal realProfit;
+    private BigDecimal value;
     private LocalDateTime valueLastUpdated;
 
     public Position(String asset) {
-        ASSET = asset;
+        this.asset = asset;
         amount = BigDecimal.ZERO;
         avgPrice = BigDecimal.ZERO;
         value = null;
@@ -19,7 +22,9 @@ public class Position {
 
     public void buy(BigDecimal amount, BigDecimal price) {
         BigDecimal newAmount = this.amount.add(amount);
-        avgPrice = (avgPrice.multiply(this.amount)).add(amount.multiply(price)).divide(newAmount, 10, RoundingMode.HALF_UP);
+        avgPrice = (avgPrice.multiply(this.amount))
+                .add(amount.multiply(price))
+                .divide(newAmount, 10, RoundingMode.HALF_UP);
         this.amount = newAmount;
     }
 
@@ -39,8 +44,9 @@ public class Position {
 
     @Override
     public String toString() {
-        String str = ASSET + "\nAmount: " + amount.setScale(3, RoundingMode.HALF_UP) +
-                "\nValue (as of " + valueLastUpdated + "): ";
+        String str = asset + "\nAmount: "
+                + amount.setScale(3, RoundingMode.HALF_UP)
+                + "\nValue (as of " + valueLastUpdated + "): ";
 
         if (value == null) {
             str += "unknown";
@@ -48,8 +54,10 @@ public class Position {
             str += value.setScale(3, RoundingMode.HALF_UP);
         }
 
-        str += "\nAverage buy price: " + avgPrice.setScale(3, RoundingMode.HALF_UP)
-                + "\nRealised profit/loss: " + realProfit.setScale(3, RoundingMode.HALF_UP);
+        str += "\nAverage buy price: "
+                + avgPrice.setScale(3, RoundingMode.HALF_UP)
+                + "\nRealised profit/loss: "
+                + realProfit.setScale(3, RoundingMode.HALF_UP);
 
         return str;
     }
