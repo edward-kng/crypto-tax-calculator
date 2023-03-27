@@ -8,13 +8,13 @@ import java.util.HashMap;
 import java.util.List;
 
 public abstract class Reader {
-    public final String NAME;
-    protected final String FIAT;
+    public final String name;
+    protected final String fiat;
     protected ArrayList<Transaction> transactionList;
 
     public Reader(String name, String fiat) {
-        NAME = name;
-        FIAT = fiat;
+        this.name = name;
+        this.fiat = fiat;
         transactionList = new ArrayList<>();
     }
     public abstract void read(File file) throws FileNotFoundException,
@@ -34,7 +34,7 @@ public abstract class Reader {
             int i = columns.indexOf(column);
 
             if (i == -1) {
-                throw new InvalidFileFormatException(file, NAME);
+                throw new InvalidFileFormatException(file, name);
             } else {
                 columnNrs.put(column, i);
             }

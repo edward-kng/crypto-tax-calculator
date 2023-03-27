@@ -27,7 +27,7 @@ public class CoinbaseReader extends Reader {
                     sc.nextLine();
                 }
             } catch (Exception e) {
-                throw new InvalidFileFormatException(file, this.NAME);
+                throw new InvalidFileFormatException(file, this.name);
             }
 
             String[] columns = sc.nextLine().split(",");
@@ -86,6 +86,6 @@ public class CoinbaseReader extends Reader {
     }
 
     public String getName() {
-        return NAME;
+        return name;
     }
 }

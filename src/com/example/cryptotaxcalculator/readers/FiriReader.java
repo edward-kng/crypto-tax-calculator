@@ -37,7 +37,7 @@ public class FiriReader extends Reader {
                 LocalDateTime date = parseDate(data[columnNrs.get("Created at")]);
 
                 if (data[columnNrs.get("Action")].contains("Bonus")
-                        && !coin.equals(FIAT)) {
+                        && !coin.equals(fiat)) {
                     transactionList.add(
                             new Transaction(date, coin, amount, null, BigDecimal.ZERO)
                     );
@@ -61,7 +61,7 @@ public class FiriReader extends Reader {
                 for (String[] transactionData : matchOrders.get(match)) {
                     String coin = transactionData[columnNrs.get("Currency")];
 
-                    if (coin.equals(FIAT)) {
+                    if (coin.equals(fiat)) {
                         orderValue = orderValue.add(new BigDecimal(
                                 transactionData[columnNrs.get("Amount")]));
                     } else {

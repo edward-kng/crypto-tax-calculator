@@ -5,12 +5,12 @@ import java.math.RoundingMode;
 import java.time.LocalDateTime;
 
 public class Position {
-    public final String ASSET;
+    public final String asset;
     private BigDecimal amount, avgPrice, realProfit, value;
     private LocalDateTime valueLastUpdated;
 
     public Position(String asset) {
-        ASSET = asset;
+        this.asset = asset;
         amount = BigDecimal.ZERO;
         avgPrice = BigDecimal.ZERO;
         value = null;
@@ -39,7 +39,7 @@ public class Position {
 
     @Override
     public String toString() {
-        String str = ASSET + "\nAmount: " + amount.setScale(3, RoundingMode.HALF_UP) +
+        String str = asset + "\nAmount: " + amount.setScale(3, RoundingMode.HALF_UP) +
                 "\nValue (as of " + valueLastUpdated + "): ";
 
         if (value == null) {
