@@ -15,7 +15,7 @@ public class Calculator {
     private final PriorityQueue<Transaction> transactions;
     private final HashMap<String, Position> portfolio;
 
-    public Calculator(List<Reader> readers) {
+    public Calculator(List<Reader> readers) throws InvalidFileFormatException {
         this.readers = readers;
         transactions = new PriorityQueue<>();
         portfolio = new HashMap<>();
