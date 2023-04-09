@@ -18,6 +18,7 @@ public class Calculator {
     public Calculator(List<Reader> readers) {
         this.readers = readers;
         transactions = new PriorityQueue<>();
+        portfolio = new HashMap<>();
 
         readTransactions();
     }
@@ -44,7 +45,6 @@ public class Calculator {
 
     public void calculateTransactions(
             LocalDateTime startDate, LocalDateTime endDate) {
-        portfolio = new HashMap<>();
         int nrTransactions = transactions.size();
 
         for (int i = 0; i < nrTransactions && !(endDate != null
