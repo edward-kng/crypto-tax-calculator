@@ -11,22 +11,15 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 public class Calculator {
-    private final LocalDateTime startDate;
-    private final LocalDateTime endDate;
     private final List<Reader> readers;
     private final PriorityQueue<Transaction> transactions;
     private HashMap<String, Position> portfolio;
 
-    public Calculator(
-            LocalDateTime startDate, LocalDateTime endDate,
-            List<Reader> readers) {
-        this.startDate = startDate;
-        this.endDate = endDate;
+    public Calculator(List<Reader> readers) {
         this.readers = readers;
         transactions = new PriorityQueue<>();
 
         readTransactions();
-        calculateTransactions();
     }
 
     private void readTransactions() {
@@ -49,7 +42,8 @@ public class Calculator {
         }
     }
 
-    private void calculateTransactions() {
+    public void calculateTransactions(
+            LocalDateTime startDate, LocalDateTime endDate) {
         portfolio = new HashMap<>();
         int nrTransactions = transactions.size();
 

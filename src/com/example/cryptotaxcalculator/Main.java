@@ -79,7 +79,8 @@ public class Main {
 
         input.close();
 
-        Calculator calculator = new Calculator(startDate, endDate, readers);
+        Calculator calculator = new Calculator(readers);
+        calculator.calculateTransactions(startDate, endDate);
         calculator.writeReport();
     }
 }
