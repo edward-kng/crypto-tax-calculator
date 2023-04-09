@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
 public class Calculator {
     private final List<Reader> readers;
     private final PriorityQueue<Transaction> transactions;
-    private HashMap<String, Position> portfolio;
+    private final HashMap<String, Position> portfolio;
 
     public Calculator(List<Reader> readers) {
         this.readers = readers;
