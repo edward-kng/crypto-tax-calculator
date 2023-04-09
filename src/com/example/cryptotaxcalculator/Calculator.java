@@ -54,7 +54,7 @@ public class Calculator {
         int nrTransactions = transactions.size();
 
         for (int i = 0; i < nrTransactions && !(endDate != null
-                && transactions.peek().date.compareTo(endDate) > 0); i++) {
+                && transactions.peek().date.isAfter(endDate)); i++) {
             Transaction transaction = transactions.remove();
             BigDecimal spotPrice = transaction.price;
             BigDecimal realPrice = transaction.total.divide(
@@ -67,7 +67,7 @@ public class Calculator {
 
             if (transaction.amount.compareTo(BigDecimal.ZERO) < 0) {
                 if (startDate == null
-                        || transaction.date.compareTo(startDate) >= 0) {
+                        || !transaction.date.isBefore(startDate)) {
                     portfolio.get(transaction.coin)
                             .sell(transaction.amount.abs(), realPrice);
                 } else {
